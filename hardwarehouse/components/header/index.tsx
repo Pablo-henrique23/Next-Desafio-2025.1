@@ -7,26 +7,31 @@ const links = [
 ]
 
 export default function Header() {
-    
-    
     return (
-        <header className="bg-[#9FA5AB] sticky top-0 z-20 mx-auto w-full py-8 px-4 md:p-0 mb-8">
-            <div className="flex items-center justify-between flex-wrap w-full md:w-10/12 mx-auto">
-                <Link href="/" className="flex items-center gap-4">
+        <header className="flex bg-[#9FA5AB] justify-center ">
+            <div className="flex items-center justify-between flex-wrap w-full mx-10 ">
+                <Link href="/" className="">
                     <Image
                         src={'/assets/no_bg_black_logo.png'}
                         alt="Logo"
-                        width={940}
-                        height={940}
-                        className="h-20 w-20 rounded-x1"/>
-
-                    
+                        width={100}
+                        height={100}
+                        className=""/>
                 </Link>
-                <form action="/">
+
+                <form action="/" className="flex w-1/3 rounded-[8px] bg-white border border-black px-7 py-2">
                     <input type="text"
                     placeholder="Buscar"
-                    
-                    className="w-full rounded-[8px] px-7 py-3 text-white bg-white caret-black transition-all duration-300" />
+                    className="w-full text-black focus:outline-none focus:ring-0 caret-black" />
+                    <button type="submit" className="">
+                        <Image
+                        src={'/assets/lupa.png'}
+                        alt="Confirmar busca"
+                        width={30}
+                        height={30}
+                        />
+                    </button>
+
                 </form>
                 <div className="flex items-center gap-[40px]">
                     <Link href="/">
@@ -55,7 +60,6 @@ export default function Header() {
                     </Link>
                 </div>
             </div>
-       
         </header>
     )
 }
