@@ -13,7 +13,7 @@ export default function HeroSection() {
             />
         </div>
         <div id="mvv" className="flex flex-col bg-[#E9E9E9] py-[15px] w-full h-auto justify-around md:flex-row gap-[20px] px-[20px] items-center">
-            <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:md:w-[240px]">
+            <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:scale-110">
                 <div id="missao-title" className="flex justify-center">
                     <p className="font-semibold">
                         Missão
@@ -30,7 +30,7 @@ export default function HeroSection() {
                     </p>
                 </div>
             </div>
-            <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:md:w-[240px]">
+            <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:scale-110">
                 <div id="visao-title" className="flex justify-center">
                     <p className="font-semibold">
                         Visão
@@ -46,7 +46,7 @@ export default function HeroSection() {
                     </p>
                 </div>
             </div>
-            <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:md:w-[240px]">
+            <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:scale-110">
                 <div id="valores-title" className="flex justify-center">
                     <p className="font-semibold">
                         Valores
@@ -64,14 +64,11 @@ export default function HeroSection() {
                 </div>
             </div>
         </div>
-        <div className="flex flex-col mx-8 py-[15px]">
-            <p className="font-semibold">Produtos em alta: </p>
-            <span className="h-[1px] bg-[#9FA5AB]"></span>
-        </div>
-        <div id="row" className="flex justify-around pb-4 md:justify-center md:gap-40">
+
+        {/* <div id="row" className="flex justify-around pb-4 md:justify-center md:gap-40">
             <ProductCard nome="RTX 4070" preco={9999.99} imagem="/assets/rtx4070.png" desc="Descrição descrição descrição "/>
             <ProductCard nome="RTX 4070" preco={9999.99} imagem="/assets/rtx4070.png" desc="Descrição descrição descrição "/>
-        </div>
+        </div> */}
         
     </div>
     )
