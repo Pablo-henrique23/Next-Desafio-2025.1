@@ -1,11 +1,12 @@
 import Image from "next/image"
+import ProductCard from "../product-card"
 export default function HeroSection() {
     return (
-    <div>
-        <div id="carrossel" className="flex w-full">
+    <div id="page" className="bg-[#E9E9E9]">
+        <div className="flex w-full">
             <Image
                 src={'/assets/teslaA100.jpg'} /* teclado.jpg */
-                alt="Carrossel"
+                alt="Tesla A100"
                 width={1920}
                 height={1080}
                 className=""
@@ -63,9 +64,15 @@ export default function HeroSection() {
                 </div>
             </div>
         </div>
-        <div className="flex ml-8 py-[15px] w-full">
+        <div className="flex flex-col mx-8 py-[15px]">
             <p className="font-semibold">Produtos em alta: </p>
+            <span className="h-[1px] bg-[#9FA5AB]"></span>
         </div>
+        <div id="row" className="flex justify-around pb-4 md:justify-center md:gap-40">
+            <ProductCard nome="RTX 4070" preco={9999.99} imagem="/assets/rtx4070.png" desc="Descrição descrição descrição "/>
+            <ProductCard nome="RTX 4070" preco={9999.99} imagem="/assets/rtx4070.png" desc="Descrição descrição descrição "/>
+        </div>
+        
     </div>
     )
 }
