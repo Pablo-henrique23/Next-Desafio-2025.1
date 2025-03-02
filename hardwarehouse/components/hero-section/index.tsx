@@ -64,11 +64,6 @@ export default function HeroSection() {
                 </div>
             </div>
         </div>
-
-        {/* <div id="row" className="flex justify-around pb-4 md:justify-center md:gap-40">
-            <ProductCard nome="RTX 4070" preco={9999.99} imagem="/assets/rtx4070.png" desc="Descrição descrição descrição "/>
-            <ProductCard nome="RTX 4070" preco={9999.99} imagem="/assets/rtx4070.png" desc="Descrição descrição descrição "/>
-        </div> */}
         
     </div>
     )

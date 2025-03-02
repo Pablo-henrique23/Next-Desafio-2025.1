@@ -87,7 +87,7 @@ export default function Header() {
                         </Link>
                     </div>
                 </div>
-                <div className="flex w-full justify-around bg-[#F5F5F5] py-[4px]">
+                <div className="flex w-full justify-around bg-[#dfdfdf] py-[4px]">
                     {visibleLinks.map((link, index) =>
                         <Link href={link.href} key={index} className="justify-between">
                             <span className="rounded-[8px] hover:bg-[#aaaaaa] hover:text-white hover:px-[2px] transition-all duration-300 easy-in-out">{link.label}</span>

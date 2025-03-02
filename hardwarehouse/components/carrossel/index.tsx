@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProductCard from "@/components/product-card";
 
-interface Produto {
+type Produto = {
     id: number;
     nome: string;
     preco: number;
@@ -12,7 +12,7 @@ interface Produto {
     desc: string;
 }
 
-interface CarrosselProps {
+interface CarrosselProps { // existe pra desempacotar {{ xx }} os produtos e pegar as propriedades ali de cima
     produtos: Produto[];
 }
 
@@ -48,32 +48,32 @@ export default function Carrossel({ produtos }: CarrosselProps) {
           <div key={index} className="flex w-full flex-shrink-0 gap-10 justify-around">
             {produtos.slice(index * itensPorSlide, index * itensPorSlide + itensPorSlide).map((produto) => (
               <ProductCard key={produto.id} {...produto} />
+              
             ))}
           </div>
         ))}
       </div>
-
-      {/* botoes */}
-        <button onClick={anterior} className="mx-4 md:ml-8 mb-8 absolute left-0 p-2 rounded-full bg-black/20 shadow-lg
+        {/* botoes */}
+        <button onClick={anterior} className="mx-4 md:ml-8 mb-8 absolute left-0 p-2 rounded-full bg-white border-2 border-[#e9e9e9] shadow-lg
         hover:bg-black/30">
           <ChevronLeft size={32} />
         </button>
-        <button onClick={proximo} className="mx-4 md:mr-8 mb-8 absolute right-0 p-2 rounded-full bg-black/20 shadow-lg
+        <button onClick={proximo} className="mx-4 md:mr-8 mb-8 absolute right-0 p-2 rounded-full bg-white border-2 border-[#e9e9e9] shadow-lg
         hover:bg-black/30">
           <ChevronRight size={32} />
         </button>
 
-      {/* indicadores */}
-      <div className="flex justify-center gap-2 my-4">
-        {Array.from({ length: totalSlides }).map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full transition-all ${
-              atual === index ? "bg-black/80 scale-125" : "bg-black/40"
-            }`}
-          ></div>
-        ))}
-      </div>
+        {/* indicadores */}
+        <div className="flex justify-center gap-2 my-4">
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all ${
+                atual === index ? "bg-black/80 scale-125" : "bg-black/40"
+              }`}
+            ></div>
+          ))}
+        </div>
     </div>
   );
 }

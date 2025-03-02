@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 type produto = {
-    id: number
     nome: string
     preco: number
     imagem: string
@@ -11,12 +10,13 @@ type produto = {
 
 export default function ProductCard({nome, preco, imagem, desc}: produto) {
     return (
-        <div id="product-container" className="flex text-center justify-center w-2/5 items-center py-2 md:border md:border-[#848484] md:rounded-lg md:mb-4">
-            <Link
-                href="/"
-                // TODO
-                className=""
-                >
+        <Link
+            href="/"
+            // TODO
+            className="flex text-center justify-center border-2 border-[#E9E9E9] w-2/5 md:w-96 items-center py-2 md:shadow-lg rounded-lg md:mb-4 transition-all duration-300 hover:scale-105"
+            >
+            <div id="product-container" 
+            className="">
                 <Image
                     src={imagem}
                     alt={nome}
@@ -30,11 +30,11 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                 <p id="preco" className="text-[#282BF3] font-semibold">
                     R$ {preco}
                 </p>
-                <p id="descricao" className="flex text-[#848484] text-[14px] pb-2 items-center text-center justify-center">
+                <p id="descricao" className="text-[#848484] text-[14px] text-center line-clamp-1 mx-2 mb-3 mt-2">
                     {desc}
                 </p>
                 <button id="comprar" 
-                className="flex py-2 px-4 gap-2 items-center justify-center text-white rounded-lg bg-[#1E8581] mx-auto
+                className="flex py-2 px-2 md:px-4 gap-2 items-center justify-center text-white rounded-lg bg-[#1E8581] mx-auto
                 hover:bg-[#1E8581]/80">
                     <Image
                         src={'/assets/carrinho.png'}
@@ -45,7 +45,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                     />
                     Comprar
                 </button>
-            </Link>
-        </div>
+            </div>
+        </Link>
     )
 }
