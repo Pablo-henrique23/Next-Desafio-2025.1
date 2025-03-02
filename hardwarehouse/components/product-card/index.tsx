@@ -13,7 +13,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
         <Link
             href="/"
             // TODO
-            className="flex text-center justify-center border-2 border-[#E9E9E9] w-2/5 md:w-96 items-center py-2 md:shadow-lg rounded-lg md:mb-4 transition-all duration-300 hover:scale-105"
+            className="flex text-center justify-center border-2 border-[#E9E9E9] w-40 md:w-96 items-center pb-2 mt-2 mx-3 md:shadow-lg rounded-lg md:mb-4 transition-all duration-300 hover:scale-105"
             >
             <div id="product-container" 
             className="">
@@ -22,7 +22,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                     alt={nome}
                     width={1920}
                     height={1080}
-                    className="size-full md:size-40 mx-auto"
+                    className="size-full md:size-40 mx-auto p-2"
                 />
                 <p id="nome" className="pt-4 font-semibold">
                     {nome}

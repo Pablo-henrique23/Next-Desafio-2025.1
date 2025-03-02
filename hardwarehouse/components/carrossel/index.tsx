@@ -33,6 +33,9 @@ export default function Carrossel({ produtos }: CarrosselProps) {
     atualizarTamanho(); 
     window.addEventListener("resize", atualizarTamanho);
   }, []);
+  onresize = () => {
+    setAtual(0); // evita que o carrossel fique vazio quando eu troco a tela de cell pra pc
+  };
 
   const totalSlides = Math.ceil(produtos.length / itensPorSlide);
   const anterior = () => setAtual((prev) => (prev === 0 ? Math.ceil(produtos.length/itensPorSlide) - 1 : prev - 1));
@@ -53,6 +56,7 @@ export default function Carrossel({ produtos }: CarrosselProps) {
           </div>
         ))}
       </div>
+      
         {/* botoes */}
         <button onClick={anterior} className="mx-4 md:ml-8 mb-8 absolute left-0 p-2 rounded-full bg-white border-2 border-[#e9e9e9] shadow-lg
         hover:bg-black/30">
