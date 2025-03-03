@@ -43,7 +43,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                         height={1080}
                         className="size-5"
                     />
-                    Comprar
+                    Ver mais
                 </button>
             </div>
         </Link>

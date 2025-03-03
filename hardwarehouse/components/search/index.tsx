@@ -2,19 +2,14 @@ import { Search as Icon } from "lucide-react";
 
 export default function Search() {
     return (
-        <form className="flex basis-full" autoComplete="off">
-            <div className="flex basis-full flex-col items-center gap-6 my-10">
-                <div className="relative flex w-full items-center">
-                    <Icon className="size-7 absolute text-white/50 left-3"/>
-                    <input type="text" 
-                        name="search" 
-                        id="search" 
-                        className="w-full rounded-xl px-16 py-6 text-white"
-                        placeholder="Buscar"
-                    />
-
-                </div>
-            </div>
+        <form action="/" className="hidden md:flex w-1/2 rounded-full bg-white border border-black px-3 py-1">
+            <input type="text"
+            placeholder="Buscar"
+            className="w-full text-black focus:outline-none focus:ring-0 caret-black" />
+            <button type="submit" className="">
+                <Icon className="size-[25px] text-black/50"/>
+            </button>
         </form>
+        
     )
 }

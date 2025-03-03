@@ -66,13 +66,10 @@
                     <p id="endereço" className="text-[18px] text-black/80">
                         R. Falsa, 0 - Null<br></br>
                         Juiz de Fora - MG, <br></br>
-                        12345-069
+                        12.345.678/0001-23
                     </p>
                 </div>
             </div>
-            {/* <div className="bg-[#075494] items-center text-center">
-                <p className="text-white font-semibold py-2"></p>
-            </div> */}
         </footer>
     )
 }

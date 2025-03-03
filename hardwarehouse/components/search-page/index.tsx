@@ -23,14 +23,14 @@ export default function SearchPage(){
     return (
         <div>
             <SecondaySearch count={count}/>
-            {count != 0 ? ( 
+            {count === 0 ? ( 
                 // ===
-                <div className="w-full flex flex-col mx-[10px]">
+                <div className="w-full flex flex-col justify-center items-center">
                     <span className='text-xl font-extrabold'>
                         Nenhum item encontrado.
                     </span>
-                    <span className='text-black/70'>
-                        Tente buscar por outro componente.
+                    <span className='text-black/70 mb-10'>
+                        Tente buscar por outra coisa.
                     </span>
                 </div>
             ) : (

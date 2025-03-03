@@ -1,4 +1,4 @@
-export default function Page() {
+export default function ContactPage() {
     return (
         <div id="general-wrapper" className="flex flex-col items-center justify-center size-full border border-black py-5">
             <h1 className="text-black/75 font-bold text-2xl md:text-3xl">Fale conosco!</h1>
@@ -22,6 +22,18 @@ export default function Page() {
                         </button>
                     </div>
                 </form>
+                <div className="flex flex-col gap-5 md:gap-0 md:flex-row mt-4 md:mt-3 justify-between">
+                    <p className="text-left">
+                        CNPJ: 12.345.678/0001-23
+                        <br></br>
+                        Fone: (32) 94002-6722
+                    </p>  
+                    <p className="text-center">
+                        R. Falsa - 0, Null,
+                        <br></br>
+                        Juiz de Fora - MG
+                    </p>
+                </div>
             </div>
         </div>
     )

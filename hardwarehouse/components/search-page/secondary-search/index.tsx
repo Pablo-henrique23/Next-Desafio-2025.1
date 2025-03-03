@@ -6,14 +6,14 @@ type SecondarySearchP = {
 
 export default function SecondarySearch({count}: SecondarySearchP){
     return(
-        <form action="" className="" id="secondary-search" autoComplete="off">
+        <form action="" className="mt-2" id="secondary-search" autoComplete="off">
             <div className="flex flex-col w-full gap-2 py-2">
                 <div className="flex relative items-center justify-center w-full">
                     <Search className="size-7 text-black/50 absolute right-10"/>
                     <input
                         type="text" 
                         name="query" 
-                        id="sec-search-input" 
+                        id="search-input" 
                         className="flex border border-black w-full mx-[20px] items-center justify-center py-2 px-4 border-2 border-gray-300 rounded-full"
                         placeholder="Buscar" 
                     />

@@ -12,7 +12,12 @@ export default function HeroSection() {
                 className=""
             />
         </div>
-        <div id="mvv" className="flex flex-col bg-[#E9E9E9] py-[15px] w-full h-auto justify-around md:flex-row gap-[20px] px-[20px] items-center">
+        <div className="flex flex-col w-full items-center">
+            <div className="my-3 py-3 px-4 md:w-1/4 bg-[#B3C9E2] text-center items-center justify-center rounded-full font-semibold text-black/70 text-xl border border-black/70">
+                Um pouco sobre nós!
+            </div>
+        </div>
+        <div id="mvv" className="flex flex-col bg-[#E9E9E9] pt-3 pb-6 w-full h-auto justify-around md:flex-row gap-[20px] px-[20px] items-center">
             <div className="rounded-[10px] bg-[#9FA5AB] py-[10px] size-10/12 transition-all justify-center duration-100 md:h-46 md:size-[210px] hover:scale-110">
                 <div id="missao-title" className="flex justify-center">
                     <p className="font-semibold">
