@@ -43,7 +43,7 @@ export default function Header() {
                             alt="Logo"
                             width={1920}
                             height={1080}
-                            className="size-[50px] md:size-[80px]"
+                            className="md:ml-14 size-[50px] md:size-[80px]"
                         />
                     </Link>
 
@@ -61,7 +61,7 @@ export default function Header() {
                         </button>
 
                     </form>
-                    <div className="flex items-center text-center md:w-36 justify-around gap-[10px] md:gap-[20px]">
+                    <div className="flex items-center text-center md:mr-14 md:w-36 justify-around gap-2 md:gap-6">
                         <Link href="/contact" className="">
                             <Image
                                 alt="Contatos"
@@ -86,7 +86,7 @@ export default function Header() {
                                 src={"/assets/user.png"}
                                 width={1920}
                                 height={1080}
-                                className="size-[25px] md:size-[30px] hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
+                                className="hidden md:flex md:size-[30px] hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                             />
                         </Link>
                     </div>
@@ -94,7 +94,7 @@ export default function Header() {
                 <div className="flex w-full justify-around items-center bg-[#dfdfdf] py-[4px]">
                     {visibleLinks.map((link, index) =>
                         <Link href={link.href} key={index} className="justify-between">
-                            <span className="rounded-[8px] hover:bg-[#aaaaaa] hover:text-white hover:px-[2px] transition-all duration-300 easy-in-out">{link.label}</span>
+                            <span className="rounded-[8px] hover:bg-[#aaaaaa] hover:text-white hover:px-[6px] transition-all duration-300 easy-in-out">{link.label}</span>
                         </Link>
                     )}
                     

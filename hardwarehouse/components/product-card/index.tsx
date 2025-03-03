@@ -24,7 +24,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                     height={1080}
                     className="size-full md:size-40 mx-auto p-2"
                 />
-                <p id="nome" className="pt-4 font-semibold">
+                <p id="nome" className="pt-4 font-semibold line-clamp-1 mx-5">
                     {nome}
                 </p>
                 <p id="preco" className="text-[#282BF3] font-semibold">
@@ -35,7 +35,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                 </p>
                 <button id="comprar" 
                 className="flex py-2 px-2 md:px-4 gap-2 items-center justify-center text-white rounded-lg bg-[#1E8581] mx-auto
-                hover:bg-[#1E8581]/80">
+                hover:bg-[#1E8581]/80 transition-all duration-200">
                     <Image
                         src={'/assets/carrinho.png'}
                         alt="Carrinho"
