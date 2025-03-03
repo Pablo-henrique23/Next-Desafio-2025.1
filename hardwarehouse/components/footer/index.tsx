@@ -1,13 +1,13 @@
-import Image from "next/image"
-import Link from "next/link"
-export default function Footer(){
-    return(
-        <footer className="">
-            <div className="flex w-full bg-[#B3C9E2] py-5 item-center text-center justify-between md:px-5">
-                <div className="flex flex-col ml-3 gap-[20px] items-left justify-left">
-                    <p className="text-[20px] font-semibold text-left w-36">Siga-nos!</p>
-                    <Link href="/" className="flex items-center gap-[10px] text-[16px] text-black/75 font-semibold hover:scale-105 transition-all duration-300 ease-in-out">
-                        <Image
+	import Image from "next/image"
+	import Link from "next/link"
+	export default function Footer(){
+	    return(
+		<footer className="">
+		    <div className="flex w-full bg-[#B3C9E2] py-5 item-center text-center justify-between md:px-5">
+			<div className="flex flex-col ml-3 gap-[20px] items-left justify-left">
+			    <p className="text-[20px] font-semibold text-left w-36">Siga-nos!</p>
+			    <Link href="https://www.instagram.com/_pablo_henrique_23" target="_blank" className="flex items-center gap-[10px] text-[16px] text-black/75 font-semibold hover:scale-105 transition-all duration-300 ease-in-out">
+				<Image
                             src={'/assets/instagram.png'}
                             alt="Instagram"
                             width={1920}
