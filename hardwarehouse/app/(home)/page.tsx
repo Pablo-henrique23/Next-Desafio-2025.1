@@ -1,4 +1,3 @@
-import ProductCard from "@/components/product-card"
 import HeroSection from "@/components/hero-section"
 import Carrossel from "@/components/carrossel"
 
