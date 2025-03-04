@@ -22,7 +22,7 @@ export default function Home() {
         <span className="h-[2px] bg-[#B3C9E2]"></span>
       </div>
       <div className="flex w-full justify-center" >
-        <Carrossel produtos={produtos_carrossel}>
+        <Carrossel produtos={produtos_carrossel} autoSlide={true} intervalo={3000}>
         </Carrossel>
       </div>
     </div>

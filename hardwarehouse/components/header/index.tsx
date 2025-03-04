@@ -13,7 +13,11 @@ const links = [
 
 ]
 
-export default function Header() {
+interface HeaderProps {
+    SEARCH_BAR_VISIBLE?: boolean
+}
+
+export default function Header({ SEARCH_BAR_VISIBLE }: HeaderProps) {
     const [visibleLinks, setVisibleLinks] = useState(links);
     const mobile = ["Home", "Produtos", "Buscar"]
 
@@ -34,6 +38,7 @@ export default function Header() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    
     return (
         <header>
             <nav className="w-full justify-center items-center text-center">
@@ -59,7 +64,11 @@ export default function Header() {
                                     />
                             </Link>
                         </div>
-                        <Search/>
+                        {SEARCH_BAR_VISIBLE ? (
+                            <Search />
+                        ) : (
+                            <p className="hidden md:flex text-xl">Olá, Admin</p>
+                        )}
                         <div className="flex items-center text-center w-1/2 md:w-1/4 justify-around md:justify-between gap-2 md:gap-10">
                             <Link href="/contact" className="mx-auto md:ml-52">
                                 <Image
@@ -70,7 +79,7 @@ export default function Header() {
                                     className="size-[25px] md:size-[30px] hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                                     />
                             </Link>
-                            <Link href="/user" className="mx-auto">
+                            <Link href="/login" className="mx-auto">
                                 <Image
                                     alt=""
                                     src={"/assets/user.png"}

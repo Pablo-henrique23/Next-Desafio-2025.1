@@ -14,32 +14,38 @@ type Produto = {
 
 interface CarrosselProps { // existe pra desempacotar {{ xx }} os produtos e pegar as propriedades ali de cima
     produtos: Produto[];
+    autoSlide?: boolean;
+    intervalo?: number
 }
 
-export default function Carrossel({ produtos }: CarrosselProps) {
+export default function Carrossel({ produtos, autoSlide = false, intervalo = 1000 } : CarrosselProps) {
   const [atual, setAtual] = useState(0);
 
   const [itensPorSlide, setItensPorSlide] = useState(1);
-
+  
   useEffect(() => {
     const atualizarTamanho = () => {
+      setAtual(0);
       if (window.innerWidth >= 768) {
         setItensPorSlide(3); 
       } else {
         setItensPorSlide(1); 
       }
     };
-
+    
     atualizarTamanho(); 
     window.addEventListener("resize", atualizarTamanho);
   }, []);
-  onresize = () => {
-    setAtual(0); // evita que o carrossel fique vazio quando eu troco a tela de cell pra pc
-  };
-
+  
   const totalSlides = Math.ceil(produtos.length / itensPorSlide);
   const anterior = () => setAtual((prev) => (prev === 0 ? Math.ceil(produtos.length/itensPorSlide) - 1 : prev - 1));
   const proximo = () => setAtual((prev) => (prev === Math.ceil(produtos.length/itensPorSlide) - 1 ? 0 : prev + 1));
+
+  useEffect(() => {
+    if (!autoSlide) return;
+    const slideInterval = setInterval(proximo, intervalo);
+    return () => clearInterval(slideInterval);
+  }, [atual]);
 
   return (
     <div className="flex flex-col items-center justify-center text-center overflow-hidden size-4/6 ">

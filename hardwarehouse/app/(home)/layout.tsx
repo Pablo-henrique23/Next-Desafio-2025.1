@@ -8,7 +8,7 @@ export default function HomeLayout({
   }>) {
     return (
       <div>
-        <Header/>
+        <Header SEARCH_BAR_VISIBLE={true}/>
         {children}
         <Footer/>
       </div>

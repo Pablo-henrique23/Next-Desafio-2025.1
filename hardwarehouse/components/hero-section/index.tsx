@@ -5,8 +5,8 @@ export default function HeroSection() {
     <div id="page" className="bg-[#E9E9E9]">
         <div className="flex w-full">
             <Image
-                src={'/assets/teslaA100.jpg'} /* teclado.jpg */
-                alt="Tesla A100"
+                src={'/assets/3090.png'} /* teclado.jpg */
+                alt="Imagem de fundo"
                 width={1920}
                 height={1080}
                 className=""
