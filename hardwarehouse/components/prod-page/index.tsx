@@ -1,38 +1,59 @@
-import ProductCard from "@/components/product-card"
+import Image from "next/image"
+import { ChevronRight, X } from "lucide-react"
+import ProductCard from "../product-card"
 
 export default function ProductPage() {
     return (
-        <div id="general-wrapper" className="my-2 md:my-4 flex flex-col md:flex-row md:justify-around md:gap-4">
-            <div id="categorias" className="flex flex-col justify-left text-center w-full md:w-1/2 md:mt-4">
-                <p className="font-bold text-lg text-black/80">CATEGORIAS</p>
-                <ul className="flex flex-wrap flex-row mx-4 mt-2 justify-left md:mx-0 md:flex-col md:gap-1">
-                    {[
-                        "GPUs",
-                        "CPUs",
-                        "Coolers",
-                        "SSDs",
-                        "HDDs",
-                        "Gabinetes",
-                        "Placas Mãe",
-                        "Memórias RAM",
-                    ].map((categoria, index) => (
-                    <li key={index} className="flex space-x-2 items-center text-center">
-                        <input
-                            type="checkbox"
-                            className="ml-3 w-5 h-5 justify-center items-center text-center rounded border-gray-400 focus:ring-2 focus:ring-blue-500"
-                        />
-                        <label className="text-black text-[18px]">{categoria}</label>
-                    </li>
-                ))}
-                </ul>
+        <div id="wrapper" className="flex flex-col size-full gap-3">
+            <div id='path' className="flex font-semibold text-xs md:text-sm items-center text-black/75 md:pt-2 md:pb-5">
+                GPUs <ChevronRight size={18}/> <p className="text-[#282BF3]">NVIDIA RTX 4070</p>
+                {/* TODO ^^ deixar dinamico */}
             </div>
-            <div className="mx-auto border-t mt-4 w-72 md:mx-0 md:w-0 md:h-auto md:border-l border-[#747474]"></div>
-            <div className="flex flex-col md:flex-row mt-4 gap-6 w-full justify-center items-center text-center ">
-                <ProductCard nome='NVIDIA RTX 4070' desc="GPU boa demais uai, ruim é o preço" preco={9999.99} imagem="/assets/rtx4070.png"/>
-                <ProductCard nome='NVIDIA RTX 4070' desc="GPU boa demais uai, ruim é o preço" preco={9999.99} imagem="/assets/rtx4070.png"/>
-                <ProductCard nome='NVIDIA RTX 4070' desc="GPU boa demais uai, ruim é o preço" preco={9999.99} imagem="/assets/rtx4070.png"/>
-                <ProductCard nome='NVIDIA RTX 4070' desc="GPU boa demais uai, ruim é o preço" preco={9999.99} imagem="/assets/rtx4070.png"/>
+            <div className="flex flex-col md:flex-row gap-3">
+                <div id='img'>
+                    <Image
+                        src={'/assets/rtx4070.png'}
+                        alt="NVIDIA RTX 4070"
+                        width={1920}
+                        height={1080}
+                        className="size-full md:w-full"
+                    />
+                </div>
+                <div id='info' className="flex flex-col md:w-full gap-1 md:justify-center md:items-left">
+                    <h1 id="nome" className="text-lg">NVIDIA RTX 4070</h1>
+                    <h1 id="preco" className="font-bold text-lg text-[#17948F]">R$ 9999.99</h1>
+                    <p id="descricao" className="text-[#848484]">Descrição descrição descrição descrição descrição</p>
+                    <div id="comprar" className="flex w-full justify-start gap-3 items-center mt-4 ALTEREME">
+                        <div className="w-1/3 md:w-fit border border-black text-center">
+                            Quantidade
+                            {/* TODO fazer controlador de quantidade */}
+                        </div>
+                        <button className="flex items-center text-center justify-center w-1/3 md:w-fit px-6 py-2 gap-3 bg-[#1E8581] hover-bg-[#1E8581]/80 rounded-[6px]">
+                            <Image
+                                src={'/assets/carrinho.png'}
+                                alt="Comprar"
+                                width={1920}
+                                height={1080}
+                                className="size-4"
+                                />
+                            <p className="hidden md:block text-white">Comprar</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="divisor" className="w-full border-b border-black/20"></div>
+
+            <h1 className="font-semibold">Outros produtos</h1>
+            <div id="more-products" className="w-full grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-3 md:gap-y-5 justify-items-center overflow-x-auto">
+                <ProductCard id={1} nome="NVIDIA RTX 4070" desc="Descrição descrição descrição descrição descrição a" imagem="/assets/rtx4070.png" preco={9999.99} />
+                <ProductCard id={2} nome="NVIDIA RTX 4070" desc="Descrição descrição descrição descrição descrição a" imagem="/assets/rtx4070.png" preco={9999.99} />
+                <ProductCard id={3} nome="NVIDIA RTX 4070" desc="Descrição descrição descrição descrição descrição a" imagem="/assets/rtx4070.png" preco={9999.99} />
+                <ProductCard id={4} nome="NVIDIA RTX 4070" desc="Descrição descrição descrição descrição descrição a" imagem="/assets/rtx4070.png" preco={9999.99} />
+                <ProductCard id={5} nome="NVIDIA RTX 4070" desc="Descrição descrição descrição descrição descrição a" imagem="/assets/rtx4070.png" preco={9999.99} />
+                <ProductCard id={6} nome="NVIDIA RTX 4070" desc="Descrição descrição descrição descrição descrição a" imagem="/assets/rtx4070.png" preco={9999.99} />
             </div>
         </div>
+        
     )
 }

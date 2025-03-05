@@ -2,18 +2,20 @@ import Image from "next/image"
 import Link from "next/link"
 
 type produto = {
+    id: number
     nome: string
     preco: number
     imagem: string
     desc: string
 }
 
-export default function ProductCard({nome, preco, imagem, desc}: produto) {
+export default function ProductCard({id, nome, preco, imagem, desc}: produto) {
     return (
         <Link
-            href="/"
+            href={`/product/${id}`}
             // TODO
-            className="flex text-center justify-center border-2 border-[#E9E9E9] w-40 md:w-96 items-center pb-2 mt-2 mx-3 md:shadow-lg rounded-lg md:mb-4 transition-all duration-300 hover:scale-105"
+            className="flex text-center pb-2 justify-center border-2 border-[#E9E9E9] w-40 md:w-52 xl:w-96
+            items-center md:shadow-lg rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
             >
             <div id="product-container" 
             className="">
@@ -30,7 +32,7 @@ export default function ProductCard({nome, preco, imagem, desc}: produto) {
                 <p id="preco" className="text-[#282BF3] font-semibold">
                     R$ {preco}
                 </p>
-                <p id="descricao" className="text-[#848484] text-[14px] text-center line-clamp-1 mx-2 mb-3 mt-2">
+                <p id="descricao" className="text-[#848484] text-[14px] text-center line-clamp-1 mx-4 mb-3 mt-2">
                     {desc}
                 </p>
                 <button id="comprar" 
