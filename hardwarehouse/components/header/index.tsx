@@ -43,49 +43,51 @@ export default function Header({ SEARCH_BAR_VISIBLE }: HeaderProps) {
         <header>
             <nav className="w-full justify-center items-center text-center">
                 <div className="bg-[#B3C9E2] justify-center items-center text-center">
-                    <div className="flex justify-around items-center text-center flex-wrap w-full ">
-                        <div className="flex items-center text-center w-1/2 md:w-1/4 justify-around md:justify-between gap-2 md:gap-10"> 
-                            <Link href="/" className="mx-auto">
+                    <div className="flex justify-center md:justify-around items-center text-center flex-wrap w-full ">
+                        <div className="flex items-center text-center justify-center w-fit gap-10"> 
+                            <Link href="/" className="">
                                 <Image
                                     src={'/assets/no_bg_black_logo.png'}
                                     alt="Logo"
                                     width={1920}
                                     height={1080}
-                                    className="size-[50px] md:size-[80px]"
+                                    className="size-16"
                                     />
                             </Link>
-                            <Link href="/admin" className="mx-auto md:mr-52">
+                            <Link href="/admin" className="">
                                 <Image
                                     alt="Manager"
                                     src={"/assets/manager.png"}
                                     width={1920}
                                     height={1920}
-                                    className="size-[25px] md:mb-2 md:size-[30px] hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
+                                    className="size-7 mb-1 hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                                     />
                             </Link>
                         </div>
                         {SEARCH_BAR_VISIBLE ? (
-                            <Search />
+                            <div className="flex w-1/4 justify-center">
+                                <Search />
+                            </div>
                         ) : (
                             <p className="hidden md:flex text-xl">Olá, Admin</p>
                         )}
-                        <div className="flex items-center text-center w-1/2 md:w-1/4 justify-around md:justify-between gap-2 md:gap-10">
-                            <Link href="/contact" className="mx-auto md:ml-52">
+                        <div className="flex items-center text-center w-fit justify-around gap-10">
+                            <Link href="/contact" className="">
                                 <Image
                                     alt="Contatos"
                                     src={"/assets/contact-mail.png"}
                                     width={1920}
                                     height={1080}
-                                    className="size-[25px] md:size-[30px] hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
+                                    className="size-7 hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                                     />
                             </Link>
-                            <Link href="/login" className="mx-auto">
+                            <Link href="/login" className="">
                                 <Image
                                     alt=""
                                     src={"/assets/user.png"}
                                     width={1920}
                                     height={1080}
-                                    className="size-[25px] md:size-[30px] hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
+                                    className="size-7 hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                                     />
                             </Link>
                         </div>

@@ -48,16 +48,16 @@ export default function ProdManagementPage() {
     return (
         <div id="container" className="flex bg-white mb-4 flex-col justify-center size-full md:m-6 md:rounded-[10px]">
             {/* parte de cima */}
-            <div className='flex w-full px-3 mt-4 justify-between text-center items-center'>
+            <div className='flex w-full px-3 mt-4 md:gap-5 justify-between text-center items-center'>
                 {/* titulo */}
-                <h1 className='w-1/3 md:font-bold text-[#7B7B7B] text-left md:text-xl'>Gerenciamento de Produtos</h1>
+                <h1 className='w-1/3 md:font-bold text-[#7B7B7B] text-left md:text-xl md:w-fit md:whitespace-nowrap'>Gerenciamento de Produtos</h1>
                 {/* busca */}
                 <div className='w-full flex justify-center'>
                     <Search/>
                 </div>
                 {/* botao de novo */}
-                <div className='flex w-full md:w-1/3 justify-end'>
-                    <div className='flex flex-col md:w-3/5'>
+                <div className='flex w-full md:w-fit justify-end'>
+                    <div className='flex flex-col md:w-full'>
                         <NewBut/>
                     </div>
                 </div>
