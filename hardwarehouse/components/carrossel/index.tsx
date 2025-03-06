@@ -2,21 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Produto } from "@/types/home/home";
 import ProductCard from "@/components/product-card";
-
-type Produto = {
-    id: number;
-    nome: string;
-    preco: number;
-    imagem: string;
-    desc: string;
-}
 
 interface CarrosselProps { // existe pra desempacotar {{ xx }} os produtos e pegar as propriedades ali de cima
     produtos: Produto[];
     autoSlide?: boolean;
     intervalo?: number
 }
+
 
 export default function Carrossel({ produtos, autoSlide = false, intervalo = 1000 } : CarrosselProps) {
   const [atual, setAtual] = useState(0);

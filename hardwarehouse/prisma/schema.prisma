@@ -46,5 +46,6 @@ model Produto {
   descricao String
   preco Float
   image String
+  em_alta Boolean @default(false)
 }
 
