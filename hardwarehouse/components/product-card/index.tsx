@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Produto } from "@/types/home/home"
 
 export default function ProductCard({produto}: {produto: Produto}) {
+
     const imgProd = produto.image || '/assets/close.png'
     return (
         <Link
