@@ -51,7 +51,6 @@ export default function Carrossel({ produtos, autoSlide = false, intervalo = 100
           <div key={index} className="flex w-full flex-shrink-0 gap-10 justify-around">
             {produtos.slice(index * itensPorSlide, index * itensPorSlide + itensPorSlide).map((produto) => (
               <ProductCard key={produto.id} produto={produto} />
-              
             ))}
           </div>
         ))}

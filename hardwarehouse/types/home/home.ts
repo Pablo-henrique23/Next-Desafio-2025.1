@@ -4,6 +4,8 @@ export type Produto = {
     preco: number;
     image: string;
     descricao: string;
+    categoria: string[];
+    em_alta: boolean;
 }
 
 export const CATEGORIAS = {
@@ -20,14 +22,14 @@ export const CATEGORIAS = {
 };
 
 export const CATEGORIAS_EXIBICAO = {
-    PC: 'Computador',
-    NOTEBOOK: 'Notebook',
-    GPU: 'Placa de Vídeo',
-    CPU: 'Processador',
-    COOLER: 'Cooler',
+    PC: 'PC',
+    CPU: 'CPUs',
+    GPU: 'GPUs',
+    RAM: 'RAM',
     SSD: 'SSDs',
-    HDD: 'HDs',
+    HDD: 'HDDs',
+    COOLER: 'Coolers',
+    NOTEBOOK: 'Notebook',
     GABINETE: 'Gabinetes',
-    RAM: 'Memórias RAM',
-    PLACA_MAE: 'Placa-Mãe',
+    PLACA_MAE: 'Placas-mãe',
 };

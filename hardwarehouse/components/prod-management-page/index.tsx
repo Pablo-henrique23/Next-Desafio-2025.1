@@ -1,10 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Search from '@/components/search';
+import { useEffect, useState } from 'react';
 import { NewBut, EditBut, ViewBut, DeleteBut } from '@/components/buttons';
+import { getProdutos } from '@/actions/home/actions';
+import { Produto } from '@prisma/client';
+import { CATEGORIAS_EXIBICAO } from '@/types/home/home';
 
 export default function ProdManagementPage() {
     const cols = [
@@ -37,13 +39,15 @@ export default function ProdManagementPage() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const produtos = [
-        { id: 1, categoria: "GPU", nome: "NVIDIA RTX 4070", preco: "R$ 9999,99", imagem: "/assets/rtx4070.png" },
-        { id: 2, categoria: "GPU", nome: "NVIDIA RTX 4070", preco: "R$ 9999,99", imagem: "/assets/rtx4070.png" },
-        { id: 3, categoria: "GPU", nome: "NVIDIA RTX 4070", preco: "R$ 9999,99", imagem: "/assets/rtx4070.png" },
-        { id: 4, categoria: "GPU", nome: "NVIDIA RTX 4070", preco: "R$ 9999,99", imagem: "/assets/rtx4070.png" },
-        { id: 5, categoria: "GPU", nome: "NVIDIA RTX 4070", preco: "R$ 9999,99", imagem: "/assets/rtx4070.png" },
-      ];
+    const [produtos, setProdutos] = useState<Produto[]>([]);
+    
+    useEffect(() => {
+        async function fetchProdutos() {
+            const data = await getProdutos();
+            setProdutos(data);
+        }
+        fetchProdutos();
+    }, []);
 
     return (
         <div id="container" className="flex bg-white mb-4 flex-col justify-center size-full md:m-6 md:rounded-[10px]">
@@ -79,12 +83,13 @@ export default function ProdManagementPage() {
                         {produtos.map((produto) => (
                             <tr key={produto.id} className='w-full border-b border-black/40 last:border-none'>
                                 <td className='text-center'>{produto.id}</td>
-                                <td className='text-center'>{produto.categoria}</td>
+                                <td className='text-center'>{produto.categoria.map(categoria => CATEGORIAS_EXIBICAO[categoria]).join(', ')}</td>
+                                {/* isso em cima é pra, caso tenha mais de 1 categoria, juntar todas e separar por virgula */}
                                 <td className='text-center md:py-2'>
                                     <div className='flex justify-center items-center text-center'>
                                         <Image
-                                            src={produto.imagem}
-                                            alt={produto.nome}
+                                            src={produto.image}
+                                            alt={produto.name}
                                             width={1920}
                                             height={1080}
                                             className="size-12 md:size-20"
@@ -93,10 +98,10 @@ export default function ProdManagementPage() {
                                 </td>
                                 <td className='w-1/4 text-center'>
                                     <p className='line-clamp-1'>
-                                        {produto.nome}
+                                        {produto.name}
                                     </p>
                                 </td>
-                                <td className='text-center'>{produto.preco}</td>
+                                <td className='text-center'>R$ {produto.preco.toFixed(2)}</td>
                                 {/* açoes */}
                                 <td className='w-fit md:w-1/5'>
                                     <div className='flex flex-col my-1 md:my-0 w-fit px-2 justify-around md:flex-row mx-auto text-center items-center bg-[#DEDEDE] gap-2 py-2 md:gap-0 md:py-1 rounded-[10px] md:w-1/2'>

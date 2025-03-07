@@ -1,6 +1,24 @@
+'use client'
 import { BackButton, ExitBut } from '@/components/buttons'
+import { getById } from '@/actions/home/actions';
+import { useEffect, useState } from 'react';
+import { CATEGORIAS_EXIBICAO, Produto } from '@/types/home/home';
 
-export default function ViewProduct() {
+
+export default function ViewProduct({ id }: {id: number}) {
+    
+    const [produto, setProduto] = useState<Produto | null >(null);
+    
+    useEffect(() => {
+        async function fetchProduct(){
+            const product = await getById(id);
+            setProduto(product);
+            console.log('fetchado 1');
+        }
+        if (id) fetchProduct();
+    }, [id]);
+    console.log(produto);
+    
     return (
         <div className="md:m-2 md:m-5 size-full justify-around p-3 md:rounded-[10px] bg-white">
             <div className='flex w-full mb-4 justify-between items-center text-center'>
@@ -15,21 +33,23 @@ export default function ViewProduct() {
             <div id="formulario">
                 <form action="" className='flex flex-col justify-around gap-2 font-semibold text-center'>
                     <label htmlFor="nome" className='flex justify-center gap-1'>Nome</label>
-                    <input readOnly defaultValue={'DEFAULT'} id='nome' type="text" className='cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
+                    <input readOnly defaultValue={produto?.name} id='nome' type="text" className='cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
 
                     <label htmlFor="categoria" className='flex justify-center gap-1'>Categoria</label>
-                    <input readOnly type="text" name="categoria" className="cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]" defaultValue={'DEFAULT'}/>
+                    <input readOnly defaultValue={produto?.categoria?.map(categoria => CATEGORIAS_EXIBICAO[categoria as keyof typeof CATEGORIAS_EXIBICAO]).join(', ')}
+                        type="text" name="categoria" 
+                        className="cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]"/>
                     
                     <label htmlFor="preco" className='flex justify-center gap-1'>Preço</label>
-                    <input readOnly defaultValue={'9999'} type="number" placeholder='R$' id="preco" name='preco'
-                    className='cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
-
+                    {produto?.preco && 
+                        <input readOnly defaultValue={`R$ ${produto?.preco.toFixed(2)}`} type="text" id="preco" name='preco'
+                        className='cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
+                    }
                     <label htmlFor="descricao" className='flex justify-center gap-1'>Descrição</label>
-                    <textarea readOnly defaultValue={'DEFAULT'} name="descricao" id="descricao" 
+                    <textarea readOnly defaultValue={produto?.descricao} name="descricao" id="descricao" 
                     className='cursor-not-allowed h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none'/>
 
-                    {/* TODO
-                    ADICIONAR IMAGEM AQUI! */}
+
 
                     <div className='mx-auto mt-4 mb-4'>
                         <BackButton fundo='[#1E8581]' fundoHover='[#1E8581]/80' url='/admin'/>

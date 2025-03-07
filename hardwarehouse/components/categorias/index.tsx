@@ -1,11 +1,13 @@
 'use client'
 import { useState } from "react";
+import { CATEGORIAS_EXIBICAO  } from "@/types/home/home";
+import { Produto } from "@/types/home/home";
 
-export function CategoriasEdit() {
-    const categorias = ["GPUs", "CPUs", "Coolers", "SSDs", "HDDs", "Gabinetes", "Memória RAM"];
+export function CategoriasEdit({ prod_categorias }: { prod_categorias: string[] }) {
+    const categorias = Object.values(CATEGORIAS_EXIBICAO);
 
     const [isOpen, setIsOpen] = useState(false)
-    const [selected, setSelected] = useState('Default')
+    const [selected, setSelected] = useState(prod_categorias[0]);
 
     return (
         <div className="size-full">

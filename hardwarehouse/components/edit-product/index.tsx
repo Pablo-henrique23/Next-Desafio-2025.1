@@ -1,7 +1,21 @@
+'use client'
 import { ImageInputBut, ConfirmButton, ExitBut } from '@/components/buttons'
 import { CategoriasEdit } from '@/components/categorias'
+import { useEffect, useState } from 'react'
+import { Produto } from '@/types/home/home'
+import { getById } from '@/actions/home/actions'
 
-export default function EditProduct() {
+export default function EditProduct({ id }: {id: number}) {
+    
+    const [produto, setProduto] = useState<Produto | null >(null);
+    useEffect(() => {
+        async function fetchProduto(){
+            const data = await getById(id);
+            setProduto(data);
+        }
+        if(id) fetchProduto();
+    }, [id]);
+
     return (
         <div className="md:m-2 md:m-5 size-full justify-around p-3 md:rounded-[10px] bg-white">
             <div className='flex w-full mb-4 justify-between items-center text-center'>
@@ -16,19 +30,21 @@ export default function EditProduct() {
             <div id="formulario">
                 <form action="" className='flex flex-col justify-around gap-2 font-semibold text-center'>
                     <label htmlFor="nome" className='flex justify-center gap-1'>Nome</label>
-                    <input defaultValue={'DEFAULT'} id='nome' type="text" className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
+                    <input defaultValue={produto?.name} id='nome' type="text" className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
 
                     <label htmlFor="categoria" className='flex justify-center gap-1'>Categoria</label>
                     <div className="w-full">
-                        <CategoriasEdit/>
+                        <CategoriasEdit prod_categorias={produto?.categoria ?? []}/>
                     </div>
                     
                     <label htmlFor="preco" className='flex justify-center gap-1'>Preço</label>
-                    <input defaultValue={'9999'} type="number" placeholder='R$' id="preco" name='preco'
-                    className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
+                    {produto?.preco &&
+                        <input defaultValue={`${produto?.preco.toFixed(2)}`} type="number" placeholder='R$' id="preco" name='preco'
+                        className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
+                    }
 
                     <label htmlFor="descricao" className='flex justify-center gap-1'>Descrição</label>
-                    <textarea defaultValue={'DEFAULT'} name="descricao" id="descricao" className='h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none ' autoComplete='off'/>
+                    <textarea defaultValue={produto?.descricao} name="descricao" id="descricao" className='h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none ' autoComplete='off'/>
 
                     <div id='img-div' className='mt-4'>
                         <ImageInputBut msg='Alterar imagem' obrigatorio={false}/>
@@ -38,6 +54,7 @@ export default function EditProduct() {
                         <ConfirmButton fundo='[#1E8581]' fundoHover='[#1E8581]/80'/>
                     </div>
                 </form>
+
             </div>
         </div>
     )

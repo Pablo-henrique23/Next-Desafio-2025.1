@@ -16,10 +16,11 @@ export default async function ProductsPage() {
                         {categorias.map((categoria, index) => (
                         <li key={index} className="flex space-x-2 items-center text-center">
                             <input
+                                id={categoria}
                                 type="checkbox"
                                 className="ml-3 w-5 h-5 justify-center items-center text-center rounded border-gray-400 focus:ring-2 focus:ring-blue-500"
                             />
-                            <label className="text-black text-[18px]">{categoria}</label>
+                            <label htmlFor={categoria} className="text-black text-[18px]">{categoria}</label>
                         </li>
                     ))}
                     </ul>
