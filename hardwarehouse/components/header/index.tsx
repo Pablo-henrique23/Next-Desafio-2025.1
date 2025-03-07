@@ -42,8 +42,8 @@ export default function Header({ SEARCH_BAR_VISIBLE }: HeaderProps) {
     return (
         <header>
             <nav className="w-full justify-center items-center text-center">
-                <div className="bg-[#B3C9E2] justify-center items-center text-center">
-                    <div className="flex justify-center md:justify-around items-center text-center flex-wrap w-full ">
+                <div className="bg-[#B3C9E2] justify-around items-center text-center">
+                    <div className="flex justify-around items-center text-center flex-wrap w-full ">
                         <div className="flex items-center text-center justify-center w-fit gap-10"> 
                             <Link href="/" className="">
                                 <Image

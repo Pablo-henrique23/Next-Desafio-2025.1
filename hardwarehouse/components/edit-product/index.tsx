@@ -4,6 +4,7 @@ import { CategoriasEdit } from '@/components/categorias'
 import { useEffect, useState } from 'react'
 import { Produto } from '@/types/home/home'
 import { getById } from '@/actions/home/actions'
+import Image from 'next/image'
 
 export default function EditProduct({ id }: {id: number}) {
     
@@ -45,6 +46,16 @@ export default function EditProduct({ id }: {id: number}) {
 
                     <label htmlFor="descricao" className='flex justify-center gap-1'>Descrição</label>
                     <textarea defaultValue={produto?.descricao} name="descricao" id="descricao" className='h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none ' autoComplete='off'/>
+
+                    <div id='div-img' className='flex justify-center w-full my-3'>
+                        <Image
+                            src={produto?.image || '/assets/close.png'}
+                            alt={produto?.name || 'Nome do produto'}
+                            width={1920}
+                            height={1080}
+                            className="w-1/2 md:w-1/5 object-contain"
+                        />
+                    </div>
 
                     <div id='img-div' className='mt-4'>
                         <ImageInputBut msg='Alterar imagem' obrigatorio={false}/>

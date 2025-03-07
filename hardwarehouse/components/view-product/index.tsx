@@ -3,6 +3,7 @@ import { BackButton, ExitBut } from '@/components/buttons'
 import { getById } from '@/actions/home/actions';
 import { useEffect, useState } from 'react';
 import { CATEGORIAS_EXIBICAO, Produto } from '@/types/home/home';
+import Image from 'next/image'
 
 
 export default function ViewProduct({ id }: {id: number}) {
@@ -49,7 +50,15 @@ export default function ViewProduct({ id }: {id: number}) {
                     <textarea readOnly defaultValue={produto?.descricao} name="descricao" id="descricao" 
                     className='cursor-not-allowed h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none'/>
 
-
+                    <div id='div-img' className='flex justify-center w-full my-3'>
+                        <Image
+                            src={produto?.image || '/assets/close.png'}
+                            alt={produto?.name || 'Nome do produto'}
+                            width={1920}
+                            height={1080}
+                            className="w-1/2 md:w-1/5 object-contain"
+                        />
+                    </div>
 
                     <div className='mx-auto mt-4 mb-4'>
                         <BackButton fundo='[#1E8581]' fundoHover='[#1E8581]/80' url='/admin'/>
