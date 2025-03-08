@@ -1,4 +1,4 @@
-import { getProdutos } from "@/actions/home/actions"
+import { getProdutos } from "@/actions/products/actions"
 import ProductCard from "@/components/product-card"
 import { CATEGORIAS_EXIBICAO } from "@/types/home/home";
 

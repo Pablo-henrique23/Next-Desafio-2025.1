@@ -2,7 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { Produto } from "@/types/home/home"
 
-export default function ProductCard({produto}: {produto: Produto}) {
+export default function ProductCard({ produto }: {produto: Produto}) {
+
     const imgProd = produto.image || '/assets/close.png'
 
     return (
@@ -15,7 +16,7 @@ export default function ProductCard({produto}: {produto: Produto}) {
             <div id="product-container" className="flex flex-col items-center">
                 <Image
                     src={imgProd}
-                    alt={produto.name}
+                    alt={produto?.name || 'Imagem do produto'}
                     width={1920}
                     height={1080}
                     className="size-full md:size-40 p-2 object-contain"
@@ -24,7 +25,7 @@ export default function ProductCard({produto}: {produto: Produto}) {
                     {produto.name}
                 </p>
                 <p id="preco" className="text-[#282BF3] font-semibold">
-                    R$ {produto.preco.toFixed(2)}
+                    R$ {produto?.preco?.toFixed(2)}
                 </p>
                 <p id="descricao" className="text-[#848484] text-[14px] text-center line-clamp-1 mx-4 mb-3 mt-2">
                     {produto.descricao}

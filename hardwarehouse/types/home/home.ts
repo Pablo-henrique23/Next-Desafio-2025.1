@@ -1,12 +1,21 @@
 export type Produto = {
+    id?: number;
+    name?: string;
+    preco?: number;
+    image?: string;
+    descricao?: string;
+    categoria?: string[];
+    em_alta?: boolean;
+};
+
+export type ProdutoIndividual = {
     id: number;
     name: string;
     preco: number;
     image: string;
     descricao: string;
     categoria: string[];
-    em_alta: boolean;
-}
+} | null;
 
 export const CATEGORIAS = {
     PC: 'PC',

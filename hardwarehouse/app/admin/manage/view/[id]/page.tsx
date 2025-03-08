@@ -1,17 +1,16 @@
-'use client'
 import ViewProduct from "@/components/view-product"
-import { useParams } from "next/navigation"
-export default function Page() {
-    const params = useParams();
-    const id = params?.id ? Number(params.id) : null; // 🔹 Garante que id seja um número válido.
+import { getById } from "@/actions/individual/actions";
 
-    if (!id) {
+export default async function Page({ params }: { params: { id: string } }) {
+    const id = parseInt(params.id,10);
+    const produto = await getById(id);
+    if (!produto) {
         return <p>Produto não encontrado.</p>; // 🔹 Exibe mensagem caso o ID seja inválido.
     }
 
     return (
         <div id="general-wrapper" className="flex size-full bg-[#E9E9E9] justify-center">
-            <ViewProduct id={id}/>
+            <ViewProduct produto={produto}/>
         </div>
     )
 }

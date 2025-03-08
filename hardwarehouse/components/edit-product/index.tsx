@@ -1,22 +1,10 @@
-'use client'
 import { ImageInputBut, ConfirmButton, ExitBut } from '@/components/buttons'
 import { CategoriasEdit } from '@/components/categorias'
-import { useEffect, useState } from 'react'
-import { Produto } from '@/types/home/home'
-import { getById } from '@/actions/home/actions'
+import { ProdutoIndividual } from '@/types/home/home'
 import Image from 'next/image'
 
-export default function EditProduct({ id }: {id: number}) {
+export default function EditProduct({ produto }: {produto: ProdutoIndividual}) {
     
-    const [produto, setProduto] = useState<Produto | null >(null);
-    useEffect(() => {
-        async function fetchProduto(){
-            const data = await getById(id);
-            setProduto(data);
-        }
-        if(id) fetchProduto();
-    }, [id]);
-
     if(!produto) return <p>Produto não encontrado.</p>;
     
     return (

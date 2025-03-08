@@ -1,22 +1,9 @@
-'use client'
 import Image from "next/image"
 import { ChevronRight, X } from "lucide-react"
 import ProductCard from "../product-card"
-import { CATEGORIAS_EXIBICAO } from "@/types/home/home";
-import { getById } from "@/actions/home/actions";
-import { Produto } from "@/types/home/home";
-import { useState, useEffect } from "react";
+import { CATEGORIAS_EXIBICAO, ProdutoIndividual } from "@/types/home/home";
 
-export default function ProductPage({ id }: {id: number}) {
-
-    const [produto, setProduto] = useState<Produto | null >(null);
-    useEffect(() => {
-        async function getProd(){
-            const data = await getById(id);
-            setProduto(data);
-        }
-        if(id) getProd();
-    }, [id])
+export default function ProductPage({ produto }: {produto: ProdutoIndividual}) {
     
     if(!produto) return null;
 
@@ -33,7 +20,7 @@ export default function ProductPage({ id }: {id: number}) {
                         alt={produto?.name}
                         width={1920}
                         height={1080}
-                        className="size-full md:w-full"
+                        className="py-5 size-full"
                     />
                 </div>
                 <div id='info' className="flex flex-col md:w-full gap-1 md:justify-center md:items-center">
@@ -45,7 +32,7 @@ export default function ProductPage({ id }: {id: number}) {
                             Quantidade
                             {/* TODO fazer controlador de quantidade */}
                         </div>
-                        <button onClick={() => alert("Comprado com sucesso")} className="flex items-center text-center justify-center w-1/3 md:w-fit px-6 py-2 gap-3 bg-[#1E8581] hover:bg-[#1E8581]/80 rounded-[6px]">
+                        <button className="flex items-center text-center justify-center w-1/3 md:w-fit px-6 py-2 gap-3 bg-[#1E8581] hover:bg-[#1E8581]/80 rounded-[6px]">
                             <Image
                                 src={'/assets/carrinho.png'}
                                 alt="Comprar"

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Search from '@/components/search';
 import { useEffect, useState } from 'react';
 import { NewBut, EditBut, ViewBut, DeleteBut } from '@/components/buttons';
-import { getProdutos } from '@/actions/home/actions';
+import { getProdutos } from '@/actions/products/actions';
 import { Produto } from '@prisma/client';
 import { CATEGORIAS_EXIBICAO } from '@/types/home/home';
 

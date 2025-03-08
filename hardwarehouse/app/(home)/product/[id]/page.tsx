@@ -1,18 +1,21 @@
-'use client'
 import ProductPage from "@/components/prod-page";
-import { useParams } from "next/navigation";
+import { getById } from "@/actions/individual/actions";
 
-export default function Page() {
+export default async function Page({ params }: { params: { id : string }}) {
     
-    const params = useParams();
-    const id = params?.id ? Number(params.id) : null;
-    if (!id) {
-        return <p>Produto não encontrado.</p>;
+    const id = parseInt(params.id,10);
+    const prod = await getById(id)
+    if (!prod) {
+        return (
+            <div>
+                <h1>Indisponivel</h1>
+            </div>
+        )
     }
 
     return (
         <div id="master" className="p-3 mb-4">
-            <ProductPage id={id}/>
+            <ProductPage produto={prod}/>
         </div>
     )
 }

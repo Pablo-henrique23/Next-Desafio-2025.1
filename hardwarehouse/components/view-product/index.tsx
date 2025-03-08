@@ -1,24 +1,9 @@
-'use client'
 import { BackButton, ExitBut } from '@/components/buttons'
-import { getById } from '@/actions/home/actions';
-import { useEffect, useState } from 'react';
-import { CATEGORIAS_EXIBICAO, Produto } from '@/types/home/home';
+import { CATEGORIAS_EXIBICAO, Produto, ProdutoIndividual } from '@/types/home/home';
 import Image from 'next/image'
 
 
-export default function ViewProduct({ id }: {id: number}) {
-    
-    const [produto, setProduto] = useState<Produto | null >(null);
-    
-    useEffect(() => {
-        async function fetchProduct(){
-            const product = await getById(id);
-            setProduto(product);
-            console.log('fetchado 1');
-        }
-        if (id) fetchProduct();
-    }, [id]);
-    console.log(produto);
+export default function ViewProduct({ produto }: {produto: ProdutoIndividual}) {
     
     return (
         <div className="md:m-2 md:m-5 size-full justify-around p-3 md:rounded-[10px] bg-white">

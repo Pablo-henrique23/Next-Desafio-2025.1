@@ -1,7 +1,6 @@
 'use client'
 import { useState } from "react";
 import { CATEGORIAS_EXIBICAO  } from "@/types/home/home";
-import { Produto } from "@/types/home/home";
 
 export function CategoriasEdit({ prod_categorias }: { prod_categorias: string[] }) {
     const categorias = Object.values(CATEGORIAS_EXIBICAO);
@@ -15,9 +14,9 @@ export function CategoriasEdit({ prod_categorias }: { prod_categorias: string[] 
             <button type='button'
                 id='categoria'
                 onClick={() => setIsOpen(!isOpen)}
-                className={`w-full bg-[#E9E9E9] text-black px-4 py-2 flex justify-between items-center ${isOpen ? "rounded-t-lg" : "rounded-lg"}`}
+                className={`w-full bg-[#E9E9E9] text-black px-4 py-2 flex justify-between ${isOpen ? "rounded-t-lg" : "rounded-lg"}`}
             >
-                {selected || 'Selecione uma categoria'}
+                <p className="mx-auto">{selected || 'Selecione uma categoria'}</p>
                 <span className={`duration-300 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
             </button>
             <div className={`transition-all duration-300 overflow-hidden ${isOpen ? "max-h-auto opacity-100" : "max-h-0 opacity-0"}`}>
