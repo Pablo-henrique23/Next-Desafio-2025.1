@@ -17,6 +17,8 @@ export default function EditProduct({ id }: {id: number}) {
         if(id) fetchProduto();
     }, [id]);
 
+    if(!produto) return <p>Produto não encontrado.</p>;
+    
     return (
         <div className="md:m-2 md:m-5 size-full justify-around p-3 md:rounded-[10px] bg-white">
             <div className='flex w-full mb-4 justify-between items-center text-center'>
