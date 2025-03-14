@@ -42,7 +42,7 @@ export default function Carrossel({ produtos, autoSlide = false, intervalo = 100
   }, [atual]);
 
   return (
-    <div className="flex flex-col items-center justify-center text-center overflow-hidden size-4/6 ">
+    <div className="flex flex-col items-center justify-center text-center overflow-hidden size-4/6 p-2">
       <div
         className="flex w-full transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${atual * 100}%)` }}

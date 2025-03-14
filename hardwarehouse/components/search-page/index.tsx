@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import SecondaySearch from './secondary-search';
 import ProductCard from '../product-card';
-export default function SearchPage(){
-    const count = 0;
+import { Produto } from "@prisma/client";
+export default function SearchPage({prods, count}: {prods: Produto[], count: number}){
 
     const [pc, setPc] = useState(false)
 
@@ -35,19 +35,11 @@ export default function SearchPage(){
                 </div>
             ) : (
                 <div className='flex flex-col size-full justify-center gap-4 mb-4'>
-                    {pc ? (
-                        <div id="row" className='flex flex-row gap-6 justify-center'>
-                            <ProductCard nome='NVIDIA RTX 4070' preco={9999.99} imagem='/assets/rtx4070.png' desc='Boa pra jogar fora'/>
-                            <ProductCard nome='NVIDIA RTX 4070' preco={9999.99} imagem='/assets/rtx4070.png' desc='Boa pra jogar fora'/>
-                            <ProductCard nome='NVIDIA RTX 4070' preco={9999.99} imagem='/assets/rtx4070.png' desc='Boa pra jogar fora'/>
-                            <ProductCard nome='NVIDIA RTX 4070' preco={9999.99} imagem='/assets/rtx4070.png' desc='Boa pra jogar fora'/>
+                        <div id="row" className='grid grid-cols-2 md:grid-cols-4 gap-4 mx-2 md:gap-6 justify-items-center my-4'>
+                            {prods.map((prod, index) => (
+                                <ProductCard key={index} produto={prod}/>
+                            ))}
                         </div>
-                    ) : (
-                        <div id="row" className='flex flex-row gap-6 justify-center'>
-                            <ProductCard nome='NVIDIA RTX 4070' preco={9999.99} imagem='/assets/rtx4070.png' desc='Boa pra jogar fora'/>
-                            <ProductCard nome='NVIDIA RTX 4070' preco={9999.99} imagem='/assets/rtx4070.png' desc='Boa pra jogar fora'/>
-                        </div>
-                    )}
                 </div>
             )}
         </div>
