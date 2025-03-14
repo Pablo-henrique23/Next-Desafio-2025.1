@@ -25,7 +25,7 @@ export default function EditProduct({ produto }: {produto: ProdutoIndividual}) {
 
                     <label htmlFor="categoria" className='flex justify-center gap-1'>Categoria</label>
                     <div className="w-full">
-                        <CategoriasEdit prod_categorias={produto?.categoria ?? []}/>
+                        <CategoriasEdit prod_categorias={produto?.categoria}/>
                     </div>
                     
                     <label htmlFor="preco" className='flex justify-center gap-1'>Preço</label>

@@ -22,7 +22,7 @@ export default function ViewProduct({ produto }: {produto: ProdutoIndividual}) {
                     <input readOnly defaultValue={produto?.name} id='nome' type="text" className='cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
 
                     <label htmlFor="categoria" className='flex justify-center gap-1'>Categoria</label>
-                    <input readOnly defaultValue={produto?.categoria?.map(categoria => CATEGORIAS_EXIBICAO[categoria as keyof typeof CATEGORIAS_EXIBICAO]).join(', ')}
+                    <input readOnly defaultValue={produto?.categoria}
                         type="text" name="categoria" 
                         className="cursor-not-allowed px-4 py-2 rounded-lg text-center bg-[#E9E9E9]"/>
                     

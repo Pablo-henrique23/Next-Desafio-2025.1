@@ -19,7 +19,7 @@ export default function ProductCard({ produto }: {produto: Produto}) {
                     alt={produto?.name || 'Imagem do produto'}
                     width={1920}
                     height={1080}
-                    className="size-full md:size-40 p-2 object-contain"
+                    className="size-40 p-2 object-contain"
                 />
                 <p id="name" className="pt-4 font-semibold line-clamp-1 mx-5">
                     {produto.name}

@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { CATEGORIAS_EXIBICAO  } from "@/types/home/home";
 
-export function CategoriasEdit({ prod_categorias }: { prod_categorias: string[] }) {
+export function CategoriasEdit({ prod_categorias }: { prod_categorias: string }) {
     const categorias = Object.values(CATEGORIAS_EXIBICAO);
 
     const [isOpen, setIsOpen] = useState(false)
-    const [selected, setSelected] = useState(prod_categorias[0]);
+    const [selected, setSelected] = useState(prod_categorias);
 
     return (
         <div className="size-full">

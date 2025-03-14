@@ -4,7 +4,7 @@ export type Produto = {
     preco?: number;
     image?: string;
     descricao?: string;
-    categoria?: string[];
+    categoria?: string;
     em_alta?: boolean;
 };
 
@@ -14,7 +14,7 @@ export type ProdutoIndividual = {
     preco: number;
     image: string;
     descricao: string;
-    categoria: string[];
+    categoria: string;
 } | null;
 
 export const CATEGORIAS = {

@@ -80,13 +80,13 @@ export default function ProdManagementPage({prods, count}: {prods: Produto[], co
                             prods.map((produto) => (
                                 <tr key={produto.id} className='w-full border-b border-black/40 last:border-none'>
                                     <td className='text-center'>{produto.id}</td>
-                                    <td className='text-center'>{produto.categoria.map(categoria => CATEGORIAS_EXIBICAO[categoria]).join(', ')}</td>
+                                    <td className='text-center'>{produto.categoria}</td>
                                     {/* isso em cima é pra, caso tenha mais de 1 categoria, juntar todas e separar por virgula */}
                                     <td className='text-center md:py-2'>
                                         <div className='flex justify-center items-center text-center'>
                                             <Image
                                                 src={produto.image}
-                                                alt={produto.categoria[0]}
+                                                alt={produto.categoria}
                                                 width={1920}
                                                 height={1080}
                                                 className="size-12 md:size-20 object-contain"

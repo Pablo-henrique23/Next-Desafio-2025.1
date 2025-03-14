@@ -47,7 +47,7 @@ export default function SecondarySearch({count}: SecondarySearchP){
                     />
                     {/* <button type="submit" className="absolute top-0 right-0 mt-2 mr-2 bg-yellow-400"></button> */}
                 </div>
-                <span className="flex ml-6 mb-1 w-full text-black/60 text-sm">{count} produto(s) encontrado(s).</span>
+                {/* <span className="flex ml-6 mb-1 w-full text-black/60 text-sm">{count} produto(s) encontrado(s).</span> */}
             </div>
         </form>
     )

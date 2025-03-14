@@ -43,7 +43,7 @@ model User {
 model Produto {
   id Int @id @default(autoincrement())
   name String @unique
-  categoria Categoria[]
+  categoria Categoria
   descricao String
   preco Float
   image String

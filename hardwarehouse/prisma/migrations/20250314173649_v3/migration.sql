@@ -19,9 +19,11 @@ CREATE TABLE "User" (
 CREATE TABLE "Produto" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
-    "categoria" "Categoria"[],
+    "categoria" "Categoria" NOT NULL,
+    "descricao" TEXT NOT NULL,
     "preco" DOUBLE PRECISION NOT NULL,
     "image" TEXT NOT NULL,
+    "em_alta" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Produto_pkey" PRIMARY KEY ("id")
 );

@@ -44,7 +44,7 @@ export default function Header({ SEARCH_BAR_VISIBLE }: HeaderProps) {
             <nav className="w-full justify-center items-center text-center">
                 <div className="bg-[#B3C9E2] justify-around items-center text-center">
                     <div className="flex justify-around items-center text-center flex-wrap w-full ">
-                        <div className="flex items-center text-center justify-around w-fit gap-10 md:w-1/2"> 
+                        {/* <div className="flex items-center text-center justify-around w-fit gap-10 md:w-1/2">  */}
                             <Link href="/" className="">
                                 <Image
                                     src={'/assets/no_bg_black_logo.png'}
@@ -63,10 +63,10 @@ export default function Header({ SEARCH_BAR_VISIBLE }: HeaderProps) {
                                     className="size-7 md:size-10 mb-1 hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                                     />
                             </Link>
-                        </div>
+                        {/* </div> */}
                         
                         
-                        <div className="flex items-center text-center w-fit justify-around gap-10 md:w-1/2">
+                        {/* <div className="flex items-center text-center w-fit justify-around gap-10 md:w-1/2"> */}
                             <Link href="/contact" className="">
                                 <Image
                                     alt="Contatos"
@@ -85,7 +85,7 @@ export default function Header({ SEARCH_BAR_VISIBLE }: HeaderProps) {
                                     className="size-7 md:size-10 hover:bg-[#f1f1f1] hover:rounded-[10px] hover:p-1 transition-all duration-300 easy-in-out "
                                     />
                             </Link>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
                 <div className="flex w-full justify-around items-center bg-[#dfdfdf] py-[4px]">

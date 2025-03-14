@@ -25,11 +25,11 @@ export default function SearchPage({prods, count}: {prods: Produto[], count: num
             <SecondaySearch count={count}/>
             {count === 0 ? ( 
                 // ===
-                <div className="w-full flex flex-col justify-center items-center">
+                <div className="w-full flex flex-col mt-8 mb-10 justify-center items-center">
                     <span className='text-xl font-extrabold'>
-                        Nenhum item encontrado.
+                        Sem resultados.
                     </span>
-                    <span className='text-black/70 mb-10'>
+                    <span className='text-black/70'>
                         Tente buscar por outra coisa.
                     </span>
                 </div>
