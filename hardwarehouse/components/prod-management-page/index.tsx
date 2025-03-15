@@ -44,7 +44,11 @@ export default function ProdManagementPage({prods, count}: {prods: Produto[], co
             {/* parte de cima */}
             <div className='flex w-full px-3 mt-4 md:gap-5 justify-between text-center items-center'>
                 {/* titulo */}
-                <h1 className='w-1/3 md:font-bold text-[#7B7B7B] text-left md:text-xl md:w-fit md:whitespace-nowrap'><a href="/admin" className='hover:underline'>Gerenciamento de Produtos</a></h1>
+                <h1 className='w-1/3 md:font-bold text-[#7B7B7B] text-left md:text-xl md:w-fit md:whitespace-nowrap'>
+                    <a href="/admin" className='hover:underline'>
+                        Gerenciamento de Produtos
+                    </a>
+                </h1>
                 {/* busca */}
                 <div className='w-full flex justify-center'>
                     <AdminSearch/>
@@ -80,7 +84,7 @@ export default function ProdManagementPage({prods, count}: {prods: Produto[], co
                             prods.map((produto) => (
                                 <tr key={produto.id} className='w-full border-b border-black/40 last:border-none'>
                                     <td className='text-center'>{produto.id}</td>
-                                    <td className='text-center'>{produto.categoria}</td>
+                                    <td className='text-center'>{CATEGORIAS_EXIBICAO[produto.categoria]}</td>
                                     {/* isso em cima é pra, caso tenha mais de 1 categoria, juntar todas e separar por virgula */}
                                     <td className='text-center md:py-2'>
                                         <div className='flex justify-center items-center text-center'>
