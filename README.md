@@ -5,3 +5,9 @@ Nesse repositório será encontrada a configuração base para o começo do desa
 Objetivo do Desafio:
 Desenvolvimento  de  um  site  expositivo  no  formato e-commerce/sistema de vendas com tema livre. Na aplicação deve ter uma página inicial, página de contato, página de login, página de produtos, página de visualização única, página carrinho (opcional) e uma página de gerenciamento que deve ser possível fazer apenas o gerenciamento dos produtos da Empresa.
 A utilização de Typescript, TailwindCSS e Prisma são obrigatórias durante o desenvolvimento.
+
+## Rodando
+Dentro de /hardwarehouse/, digite:
+```
+npm i && npm run dev
+```
