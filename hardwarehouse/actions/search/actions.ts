@@ -1,6 +1,6 @@
 import prisma from "@/lib/db";
 
-const itemsPerPage = 8;
+// const itemsPerPage = 8;
 
 export async function getFilteredProds(query: string, curr: number) {
 
@@ -12,7 +12,7 @@ export async function getFilteredProds(query: string, curr: number) {
             orderBy: {
                 preco: 'asc'
             },
-            take: itemsPerPage
+            // take: itemsPerPage
         })
         const count = await prisma.produto.count({
             where: {
