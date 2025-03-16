@@ -5,8 +5,9 @@ export default async function Page(
     { searchParams }:
     { searchParams: { query?: string, page?: string } })
 {
-    const query = searchParams?.query || '';
-    const curPage = Number(searchParams?.page) || 1;
+    const p = await searchParams
+    const query = p?.query || '';
+    const curPage = Number(p?.page) || 1;
     
     const { prods, count } = await getFilteredProds(query, curPage)
 
