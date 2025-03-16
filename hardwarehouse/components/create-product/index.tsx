@@ -2,24 +2,33 @@
 
 import React, { useState } from 'react'
 import { ImageInputBut, ConfirmButton, ExitBut } from '@/components/buttons'
+import { CATEGORIAS_EXIBICAO } from '@/types/home/home';
+import { createProduct } from '@/actions/admin/actions';
+import { Categoria } from '@prisma/client';
 
 export default function CriarProduto() {
-    const categorias = ["GPUs", "CPUs", "Coolers", "SSDs", "HDDs", "Gabinetes", "Memória RAM"];
+    const categorias = Object.entries(CATEGORIAS_EXIBICAO);
+    const select = 'Selecione uma categoria';
 
-    const selecionar = 'Selecione uma categoria';
-    
-    
     const [isOpen, setIsOpen] = useState(false)
-    const [categoria, setCategoria] = useState(selecionar)
+    
+    
+    const [name, setName] = useState<string>();
+    const [categoria, setCategoria] = useState<Categoria>()
+    const [preco, setPreco] = useState<number>();
+    const [desc, setDesc] = useState<string>();
+    const [img, setImg] = useState<string>();
 
-
-
-    const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault() // impede o comportamento padrão do formulário (recarregar a página)
-        if(categoria === selecionar) {
+    const handleSubmit = async (e: React.FormEvent) => {
+        if(!name || !categoria || !preco || !desc || !img){
+            alert('Preencha todos os campos')
             return;
         }
+        e.preventDefault();
+        await createProduct(name, desc, preco, img, categoria);
+        window.location.href = '/admin';
     }
+
 
     return (
         <div className="md:m-2 md:m-5 size-full justify-around p-3 md:rounded-[10px] bg-white">
@@ -33,9 +42,10 @@ export default function CriarProduto() {
             <div className='border-b border-black/60 my-2'></div>
 
             <div id="formulario">
-                <form action="" onSubmit={handleFormSubmit} className='flex flex-col justify-around gap-2 font-semibold text-center'>
+                <form action="" onSubmit={handleSubmit} className='flex flex-col justify-around gap-2 font-semibold text-center'>
                     <label htmlFor="nome" className='flex justify-center gap-1'>Nome<p className='text-red-500'>*</p></label>
-                    <input required id='nome' type="text" className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]' autoComplete='off'/>
+                    <input required id='nome' type="text" className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'
+                    autoComplete='off' onChange={(e) => setName(e.target.value)} />
 
                     <label htmlFor="categoria" className='flex justify-center gap-1'>Categoria<p className='text-red-500'>*</p></label>
                     <div className="w-full">
@@ -46,21 +56,21 @@ export default function CriarProduto() {
                             onClick={() => setIsOpen(!isOpen)}
                             className={`w-full bg-[#E9E9E9] text-black px-4 py-2 flex justify-between items-center ${isOpen ? "rounded-t-lg" : "rounded-lg"}`}
                         >
-                            {categoria || 'Selecione uma categoria'}
+                            {categoria || select}
                             <span className={`duration-300 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
                         </button>
                         <div className={`transition-all duration-300 overflow-hidden ${isOpen ? "max-h-auto opacity-100" : "max-h-0 opacity-0"}`}>
                             <ul className="bg-white border rounded-lg shadow-md">
-                            {categorias.map((categoria) => (
+                            {categorias.map(([key, cat]) => (
                                 <li
-                                key={categoria}
+                                key={key}
                                 className="bg-gray-50 px-4 py-2 border-b last:border-none last:rounded-b-lg hover:bg-gray-100 cursor-pointer"
                                 onClick={() => {
-                                    setCategoria(categoria);
+                                    setCategoria(key as Categoria);
                                     setIsOpen(false);
                                 }}
                                 >
-                                {categoria}
+                                {cat}
                                 </li>
                             ))}
                             </ul>
@@ -69,13 +79,14 @@ export default function CriarProduto() {
                     
                     <label htmlFor="preco" className='flex justify-center gap-1'>Preço<p className='text-red-500'>*</p></label>
                     <input required type="number" placeholder='R$' id="preco" name='preco'
-                    className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]'/>
+                    className='px-4 py-2 rounded-lg text-center bg-[#E9E9E9]' step={0.01} min={0} onChange={(e) => setPreco(Number(e.target.value))}/>
 
                     <label htmlFor="descricao" className='flex justify-center gap-1'>Descrição<p className='text-red-500'>*</p></label>
-                    <textarea required name="descricao" id="descricao" className='h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none ' autoComplete='off'/>
+                    <textarea required name="descricao" id="descricao" className='h-20 px-2 py-2 rounded-lg bg-[#E9E9E9] text-left resize-none'
+                    onChange={(e) => setDesc(e.target.value)} autoComplete='off'/>
 
                     <div id='img-div' className='mt-4'>
-                        <ImageInputBut msg='Adicionar imagem' obrigatorio/>
+                        <ImageInputBut msg='Adicionar imagem' obrigatorio onChange={setImg}/>
                     </div>
 
                     <div className='mx-auto mt-4 mb-2'>

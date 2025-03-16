@@ -64,7 +64,7 @@ export function DeleteBut({ id }: { id:number }){
     )
 }
 
-export function ImageInputBut({msg, obrigatorio}: {msg: string, obrigatorio:boolean}) {
+export function ImageInputBut({msg, obrigatorio, onChange}: {msg: string, obrigatorio:boolean, onChange?: (fileName: string) => void }) {
     const [fileName, setFileName] = useState<string>(msg);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +73,7 @@ export function ImageInputBut({msg, obrigatorio}: {msg: string, obrigatorio:bool
         const file = event.target.files[0]; 
         if (file) {
             setFileName(file.name); 
+            if (onChange) onChange(`/assets/${file.name}`);
         } else {
             setFileName(msg);
         }
@@ -95,9 +96,11 @@ export function ImageInputBut({msg, obrigatorio}: {msg: string, obrigatorio:bool
     )
 }
 
-export function ConfirmButton({ fundo, fundoHover }: {fundo: string, fundoHover: string}) {
-    return (
-        <button type='submit' className={`w-full bg-${fundo} text-white p-3 rounded-[10px] hover:bg-${fundoHover}`}>
+export function ConfirmButton({ fundo, fundoHover, type='submit', onClick }: 
+    {fundo: string, fundoHover: string, type?:'submit' | 'reset' | 'button', onClick?: () => void}) {
+    
+        return (
+        <button type={type} className={`w-full bg-${fundo} text-white p-3 rounded-[10px] hover:bg-${fundoHover}`}>
             Confirmar
         </button>
     )

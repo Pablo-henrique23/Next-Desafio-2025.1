@@ -4,8 +4,8 @@ import { getRandomProdutos } from "@/actions/random/actions";
 
 
 export default async function Page({ params }: { params: { id : string }}) {
-    
-    const id = parseInt(params.id,10);
+    const p = await params;
+    const id = parseInt(p.id,10);
     const prod = await getById(id)
     if (!prod) {
         return (
